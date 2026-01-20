@@ -24,6 +24,7 @@ export const config = {
         contactNo: process.env.SUPER_ADMIN_CONTACT_NO || '+1234567890',
     },
     jwt_secret:process.env.JWT_SECRET,
-    jwt_refresh_secret:process.env.JWT_REFRESH_SECRET
+    jwt_refresh_secret:process.env.JWT_REFRESH_SECRET,
+    salt: process.env.SALT_ROUNDS,
 
 }
