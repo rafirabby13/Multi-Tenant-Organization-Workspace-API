@@ -1,0 +1,28 @@
+model User {
+    id       String     @id @default(uuid())
+    email    String     @unique
+    password String
+    role     UserRole   @default(ORG_MEMBER)
+    status   UserStatus @default(ACTIVE)
+
+    // profile fields...
+    name          String?
+    profilePhoto  String?
+    contactNumber String?
+
+    // Organization Relation...
+    organizationId String?
+    organization   Organization? @relation(fields: [organizationId], references: [id])
+
+    // metadata ...     
+    needPasswordChange Boolean  @default(true)
+    isDeleted          Boolean  @default(false)
+    createdAt          DateTime @default(now())
+    updatedAt          DateTime @updatedAt
+
+    tasks Task[]
+
+    @@index([organizationId])
+    @@index([role])
+    @@map("users")
+}

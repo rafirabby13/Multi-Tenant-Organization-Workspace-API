@@ -1,0 +1,22 @@
+enum UserRole {
+    PLATFORM_ADMIN
+    ORG_ADMIN
+    ORG_MEMBER
+}
+
+enum UserStatus {
+    ACTIVE
+    INACTIVE
+    DELETED
+}
+
+enum Gender {
+    MALE
+    FEMALE
+}
+
+enum TaskStatus {
+  PENDING
+  IN_PROGRESS
+  DONE
+}
