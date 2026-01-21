@@ -21,6 +21,7 @@ model User {
     updatedAt          DateTime @updatedAt
 
     tasks Task[]
+    projects Project[]
 
     @@index([organizationId])
     @@index([role])
