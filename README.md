@@ -162,6 +162,8 @@ This is where the Multi-Tenancy magic happens. Even if a user has the correct ro
 
 A complete Postman Collection has been provided for testing.
 
+### checkout this Postman Documentation: https://documenter.getpostman.com/view/45502579/2sBXVkA9P5
+
 ### Prerequisites
  ** Import the Collection: Drag and drop the provided .json file into Postman.
 
@@ -193,11 +195,15 @@ A complete Postman Collection has been provided for testing.
 *** Login as Org Admin: Get a new token to manage projects and tasks.
 
 ### Test Credentials
-- Platform Admin: platform@admin.com / 123456
+- Platform Admin Email:   platformadmin@gmail.com
+- Platform Admin Password: platformadmin123
 
-- Org Admin: admin@tesla.com / 123456
+- Organization Admin Email: wal@technova.com
+- Organization Admin Password: Walton123!
 
-- Org Member: employee@tesla.com / 123456
+- Organization Member Email: member1@org.com
+- Organization Member Password: SecurePassword123!
+
 
 
 
