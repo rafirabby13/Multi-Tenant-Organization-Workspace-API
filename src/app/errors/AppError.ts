@@ -10,6 +10,9 @@ export class AppError extends Error {
     this.status = `${statusCode}`.startsWith("4") ? "fail" : "error";
     this.message = message; // distinguishes expected errors vs programming errors
 
-    Error.captureStackTrace(this, this.constructor);
+    // Error.captureStackTrace(this, this.constructor);
+    if (Error.captureStackTrace) {
+  Error.captureStackTrace(this, this.constructor);
+}
   }
 }
