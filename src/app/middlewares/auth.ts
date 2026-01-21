@@ -8,9 +8,19 @@ const auth = (...roles: string[]) => {
     return async (req: Request & { user?: any }, res: Response, next: NextFunction) => {
         try {
             // const token = req.cookies.get("accessToken");
-            console.log({roles})
-            const token = await req.cookies?.accessToken
-            console.log({token})
+       
+            // const token = await req.cookies?.accessToken
+               let token: string | undefined;
+
+      const authHeader = req.headers?.authorization;
+      if (authHeader && authHeader.startsWith("Bearer ")) {
+        token = authHeader.split(" ")[1];
+      } 
+   
+      else if (req.cookies?.accessToken) {
+        token = req.cookies.accessToken;
+      }
+          
 
             if (!token) {
                 throw new AppError(httpStatus.BAD_REQUEST,"You are not authorized!")

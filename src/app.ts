@@ -3,17 +3,14 @@ import { config } from './config';
 import globalErrorHandler from './app/middlewares/globalErrorHandler';
 import router from './app/routes';
 import cookieParser from 'cookie-parser';
-
+import cors from 'cors';
 const app: Application = express();
 // app.post(
 //   '/webhook',
 //   express.raw({ type: 'application/json' }), 
 //   PaymentController.handleWebhook
 // );
-// app.use(cors({
-//     origin: ['http://localhost:3000', 'https://tour-guide-client-lake.vercel.app'],
-//     credentials: true
-// }));
+app.use(cors());
 
 
 //parser
