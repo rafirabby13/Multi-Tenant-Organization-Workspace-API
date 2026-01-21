@@ -7,7 +7,8 @@ import { UserRole } from '../../../../prisma/generated/prisma/enums';
 
 const router = express.Router();
 
-// 1. Create (Admin Only)
+
+
 router.post(
     '/',
     auth(UserRole.ORG_ADMIN),
@@ -15,7 +16,8 @@ router.post(
     TaskController.createTask
 );
 
-// 2. Read All/Single (Admin + Member)
+
+
 router.get(
     '/',
     auth(UserRole.ORG_ADMIN, UserRole.ORG_MEMBER),
@@ -28,7 +30,8 @@ router.get(
     TaskController.getSingleTask
 );
 
-// 3. Update (Admin + Member with restrictions)
+
+
 router.put(
     '/:id',
     auth(UserRole.ORG_ADMIN, UserRole.ORG_MEMBER),
@@ -36,7 +39,8 @@ router.put(
     TaskController.updateTask
 );
 
-// 4. Delete (Admin Only)
+
+
 router.delete(
     '/:id',
     auth(UserRole.ORG_ADMIN),

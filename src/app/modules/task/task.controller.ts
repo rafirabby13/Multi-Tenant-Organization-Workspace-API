@@ -1,11 +1,12 @@
 import { Request, Response } from "express";
 import httpStatus from "http-status";
-import catchAsync from "../../utils/catchAsync"; // Adjust path
-import sendResponse from "../../utils/sendResponse"; // Adjust path
-import { TaskServices } from "./task.services";
+import catchAsync from "../../shared/catchAsync";
+import sendResponse from "../../shared/sendResponse";
+import { TaskServices } from "./task.service";
 
 const createTask = catchAsync(async (req: Request, res: Response) => {
-    const result = await TaskServices.createTaskIntoDB(req.body, req.user);
+    const user = (req as any).user;
+    const result = await TaskServices.createTaskIntoDB(req.body, user);
     sendResponse(res, {
         statusCode: httpStatus.CREATED,
         success: true,
@@ -15,7 +16,9 @@ const createTask = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getAllTasks = catchAsync(async (req: Request, res: Response) => {
-    const result = await TaskServices.getAllTasksFromDB(req.user, req.query);
+    const user = (req as any).user;
+
+    const result = await TaskServices.getAllTasksFromDB(user, req.query);
     sendResponse(res, {
         statusCode: httpStatus.OK,
         success: true,
@@ -26,7 +29,9 @@ const getAllTasks = catchAsync(async (req: Request, res: Response) => {
 
 const getSingleTask = catchAsync(async (req: Request, res: Response) => {
     const { id } = req.params;
-    const result = await TaskServices.getSingleTaskFromDB(id, req.user);
+    const user = (req as any).user;
+
+    const result = await TaskServices.getSingleTaskFromDB(id as string, user);
     sendResponse(res, {
         statusCode: httpStatus.OK,
         success: true,
@@ -37,7 +42,9 @@ const getSingleTask = catchAsync(async (req: Request, res: Response) => {
 
 const updateTask = catchAsync(async (req: Request, res: Response) => {
     const { id } = req.params;
-    const result = await TaskServices.updateTaskInDB(id, req.body, req.user);
+    const user = (req as any).user;
+
+    const result = await TaskServices.updateTaskInDB(id as string, req.body, user);
     sendResponse(res, {
         statusCode: httpStatus.OK,
         success: true,
@@ -48,7 +55,8 @@ const updateTask = catchAsync(async (req: Request, res: Response) => {
 
 const deleteTask = catchAsync(async (req: Request, res: Response) => {
     const { id } = req.params;
-    const result = await TaskServices.deleteTaskFromDB(id, req.user);
+    const user = (req as any).user;
+    const result = await TaskServices.deleteTaskFromDB(id as string, user);
     sendResponse(res, {
         statusCode: httpStatus.OK,
         success: true,
