@@ -7,7 +7,7 @@
 A robust, enterprise-grade RESTful API built with Node.js, Express, and TypeScript. This system is designed to manage multiple organizations in a strictly isolated multi-tenant environment, allowing Platform Admins to oversee the system while Organization Admins manage their own projects, tasks, and employees.
 
 ## Checkout ER-Diagram:
-### https://drive.google.com/file/d/1DeAZ9GoBma73WrXVmSu3krWHZIGgGu_0/view?usp=sharing
+#### https://drive.google.com/file/d/1DeAZ9GoBma73WrXVmSu3krWHZIGgGu_0/view?usp=sharing
 ## Project Overview
 
 ### Problem Solved
