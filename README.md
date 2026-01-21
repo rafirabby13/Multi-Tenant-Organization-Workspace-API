@@ -165,7 +165,9 @@ This is where the Multi-Tenancy magic happens. Even if a user has the correct ro
 
 A complete Postman Collection has been provided for testing.
 
-### checkout this Postman Documentation: https://documenter.getpostman.com/view/45502579/2sBXVkA9P5
+### checkout this Postman Documentation: 
+
+#### https://documenter.getpostman.com/view/45502579/2sBXVkA9P5
 
 ### Prerequisites
  ** Import the Collection: Drag and drop the provided .json file into Postman.
