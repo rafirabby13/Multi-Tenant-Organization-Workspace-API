@@ -13,6 +13,7 @@
     "allowImportingTsExtensions": false,
     // "types": ["node"],
     // "lib": ["ES2020"],
+    "noImplicitAny": false,
     "skipLibCheck": true
   },
   "include": ["src", "prisma.config.ts"],
