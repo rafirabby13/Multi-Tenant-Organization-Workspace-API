@@ -9,6 +9,6 @@ import { UserRole } from "../../../../prisma/generated/prisma/enums"
 const router = Router()
 
 
-router.post("/create-user", auth(UserRole.ORG_ADMIN), validateRequest(createUserSchema), UserController.createUser)
+router.post("/create-user", auth(UserRole.ORG_ADMIN, UserRole.PLATFORM_ADMIN), validateRequest(createUserSchema), UserController.createUser)
 
 export const UserRoutes = router

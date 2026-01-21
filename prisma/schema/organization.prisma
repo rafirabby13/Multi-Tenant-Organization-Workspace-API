@@ -7,6 +7,10 @@ model Organization {
     users    User[]
     projects Project[]
 
+    status    OrgStatus @default(ACTIVE)
+    logo      String?
+
+
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 

@@ -2,6 +2,7 @@ import express, { Application, NextFunction, Request, Response } from 'express';
 import { config } from './config/index.env';
 import globalErrorHandler from './app/middlewares/globalErrorHandler';
 import router from './app/routes';
+import cookieParser from 'cookie-parser';
 
 const app: Application = express();
 // app.post(
@@ -18,7 +19,7 @@ const app: Application = express();
 //parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use(cookieParser());
+app.use(cookieParser());
 app.use("/api/v1", router)
 
 app.get('/', (req: Request, res: Response) => {

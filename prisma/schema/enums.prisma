@@ -20,3 +20,9 @@ enum TaskStatus {
   IN_PROGRESS
   DONE
 }
+
+enum OrgStatus {
+  ACTIVE
+  SUSPENDED 
+  PENDING   
+}

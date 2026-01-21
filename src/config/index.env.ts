@@ -17,11 +17,9 @@ export const config = {
         stripe_webhook_secret: process.env.STRIPE_WEBHOOK_SECRET,
         client_url: process.env.CLIENT_URL,
     },
-    superAdmin: {
-        email: process.env.SUPER_ADMIN_EMAIL || 'superadmin@gmail.com',
-        password: process.env.SUPER_ADMIN_PASSWORD || 'superadmin123',
-        name: process.env.SUPER_ADMIN_NAME || 'Super Admin',
-        contactNo: process.env.SUPER_ADMIN_CONTACT_NO || '+1234567890',
+    platformAdmin: {
+        email: process.env.PLATFORM_ADMIN_EMAIL || 'platformadmin@gmail.com',
+        password: process.env.PLATFORM_ADMIN_PASSWORD || 'platformadmin123'
     },
     jwt_secret:process.env.JWT_SECRET,
     jwt_refresh_secret:process.env.JWT_REFRESH_SECRET,

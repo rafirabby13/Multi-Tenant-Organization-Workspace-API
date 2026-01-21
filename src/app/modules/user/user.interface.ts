@@ -5,7 +5,7 @@ export interface ICreateUser {
   email: string;
   password: string;
   
-  role?: UserRole; 
+  role: UserRole; 
   
   profilePhoto?: string;
   contactNumber?: string;

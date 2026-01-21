@@ -21,6 +21,8 @@ export const createUserSchema = z.object({
         "Password must include uppercase, lowercase, and number"
       ),
 
+    role: UserRoleEnum,
+
     name: z.string().optional(),
 
     profilePhoto: z
@@ -48,11 +50,11 @@ export const UpdateProfileSchema = z.object({
     .optional(),
   profilePhoto: z.string().url({ message: "Invalid URL" }).optional(),
 
-  
+
   status: UserStatusEnum.optional(),
 
 
-  
+
   needPasswordChange: z.boolean().optional(),
   isDeleted: z.boolean().optional(),
 });

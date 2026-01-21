@@ -8,8 +8,10 @@ import pick from "../../helpers/pick";
 
 const createUser = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
     // console.log({req})
+    const user = (req as any).user;
+    // console.log(".............", user, {body: req.body})
+    const result = await UserServices.createUser(req.body, user)
 
-    const result = await UserServices.createUser(req.body)
 
     sendResponse(res, {
         statusCode: 201,

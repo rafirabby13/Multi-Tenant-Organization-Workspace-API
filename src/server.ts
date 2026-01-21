@@ -1,6 +1,7 @@
 
 import { Server } from 'http';
 import app from './app';
+import { seedPlatformAdmin } from './app/shared/seedPlatformAdmin';
 
 
 async function bootstrap() {
@@ -43,5 +44,5 @@ async function bootstrap() {
 
 (async () => {
     await bootstrap();
-    // await seedSuperAdmin()
+    await seedPlatformAdmin()
 })()

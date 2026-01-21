@@ -746,6 +746,8 @@ export const OrganizationScalarFieldEnum = {
   id: 'id',
   name: 'name',
   isDeleted: 'isDeleted',
+  status: 'status',
+  logo: 'logo',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -847,6 +849,20 @@ export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaMod
  * Reference to a field of type 'Boolean'
  */
 export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+/**
+ * Reference to a field of type 'OrgStatus'
+ */
+export type EnumOrgStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OrgStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'OrgStatus[]'
+ */
+export type ListEnumOrgStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OrgStatus[]'>
     
 
 

@@ -42,3 +42,12 @@ export const TaskStatus = {
 } as const
 
 export type TaskStatus = (typeof TaskStatus)[keyof typeof TaskStatus]
+
+
+export const OrgStatus = {
+  ACTIVE: 'ACTIVE',
+  SUSPENDED: 'SUSPENDED',
+  PENDING: 'PENDING'
+} as const
+
+export type OrgStatus = (typeof OrgStatus)[keyof typeof OrgStatus]

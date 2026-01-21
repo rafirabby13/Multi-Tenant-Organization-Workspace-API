@@ -1,35 +1,78 @@
 
 import bcrypt from "bcryptjs";
 import httpStatus from "http-status";
-import { Request } from "express";
-import { userSearchableFields } from "./user.constant";
+import { v4 as uuidv4 } from 'uuid';
+
 import { Prisma, UserRole, UserStatus } from "../../../../prisma/generated/prisma/client";
 import { AppError } from "../../errors/AppError";
 import { prisma } from "../../../lib/prisma";
 import { config } from "../../../config/index.env";
+import { ICreateUser } from "./user.interface";
 
 
 
-const createUser = async (payload: any) => {
+const createUser = async (payload: ICreateUser, currentUser: any) => {
+
+
+    let organizationId: string | null = null;
+    let role: UserRole = UserRole.ORG_MEMBER;
 
 
 
-    console.log({ payload })
-    const hashedPassword = await bcrypt.hash(payload.password, config.salt ? parseInt(config.salt) : 10);
+
+    if (currentUser.role === UserRole.ORG_ADMIN) {
+        organizationId = currentUser.organizationId;
+
+        if (payload.role === UserRole.ORG_ADMIN || payload.role === UserRole.ORG_MEMBER) {
+            role = payload.role;
+        } else {
+            role = UserRole.ORG_MEMBER;
+        }
+    }
+    else if (currentUser.role === UserRole.PLATFORM_ADMIN) {
+
+       
+        if (payload.role !== UserRole.PLATFORM_ADMIN) {
+            throw new AppError(
+                httpStatus.FORBIDDEN,
+                "Platform Admins cannot create Organization Users. Please use the 'Create Organization' endpoint or let the Org Admin do it."
+            );
+        }
+
+        organizationId = null; 
+        role = UserRole.PLATFORM_ADMIN;
+    }
+    else {
+        throw new AppError(httpStatus.FORBIDDEN, "Invalid Role Permissions");
+    }
 
 
+    if (!organizationId && role !== UserRole.PLATFORM_ADMIN) {
+        throw new AppError(httpStatus.BAD_REQUEST, "Organization ID is required for this user role");
+    }
+
+    const existingUser = await prisma.user.findUnique({
+        where: { email: payload.email }
+    });
+    if (existingUser) {
+        throw new AppError(httpStatus.CONFLICT, "Email already exists");
+    }
+    // console.log({ payload }, { role })
+
+    const hashedPassword = await bcrypt.hash(payload.password, config.salt ? parseInt(config.salt) : 12);
 
     const createdUser = await prisma.user.create({
         data: {
             email: payload.email,
             password: hashedPassword,
-            role: payload.role || UserRole.ORG_MEMBER,
+            role: role,
+            organizationId: organizationId,
 
         }
     })
 
 
-    const {password, ...userWithoutPassword } = createdUser;
+    const { password, ...userWithoutPassword } = createdUser;
 
 
 
