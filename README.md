@@ -1,12 +1,13 @@
 
 #  Multi-Tenant Organization Workspace API 
 
+## Live Backend URL:
 #### https://multi-tenant-organization-workspace-api.onrender.com/
 
 
 A robust, enterprise-grade RESTful API built with Node.js, Express, and TypeScript. This system is designed to manage multiple organizations in a strictly isolated multi-tenant environment, allowing Platform Admins to oversee the system while Organization Admins manage their own projects, tasks, and employees.
 
-## Checkout ER-Diagram:
+## ER-Diagram:
 #### https://drive.google.com/file/d/1DeAZ9GoBma73WrXVmSu3krWHZIGgGu_0/view?usp=sharing
 ## Project Overview
 
@@ -165,7 +166,7 @@ This is where the Multi-Tenancy magic happens. Even if a user has the correct ro
 
 A complete Postman Collection has been provided for testing.
 
-### checkout this Postman Documentation: 
+### Postman Documentation Live Link: 
 
 #### https://documenter.getpostman.com/view/45502579/2sBXVkA9P5
 
