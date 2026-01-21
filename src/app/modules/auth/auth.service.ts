@@ -1,7 +1,7 @@
 
 import bcrypt from "bcryptjs";
 import { jwtHelper } from "../../helpers/jwtHelper";
-import { config } from "../../../config/index.env";
+import { config } from "../../../config";
 import { prisma } from "../../../lib/prisma";
 import { UserStatus } from "../../../../prisma/generated/prisma/enums";
 import { AppError } from "../../errors/AppError";

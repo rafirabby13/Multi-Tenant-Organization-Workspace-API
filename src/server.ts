@@ -1,7 +1,7 @@
 
 import { Server } from 'http';
 import app from './app';
-import { seedPlatformAdmin } from './app/shared/seedPlatformAdmin';
+import { seedPlatformAdmin } from './scripts/seedPlatformAdmin';
 
 
 async function bootstrap() {

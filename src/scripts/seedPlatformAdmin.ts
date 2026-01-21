@@ -1,8 +1,8 @@
 
 import * as bcrypt from 'bcryptjs';
-import { config } from '../../config/index.env';
-import { UserRole } from '../../../prisma/generated/prisma/enums';
-import { prisma } from '../../lib/prisma';
+import { config } from '../config';
+import { prisma } from '../lib/prisma';
+import { UserRole } from '../../prisma/generated/prisma/enums';
 const superAdminCreds = {
   email: config.platformAdmin.email,
   password: config.platformAdmin.password

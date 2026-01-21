@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { Prisma, UserRole, UserStatus } from "../../../../prisma/generated/prisma/client";
 import { AppError } from "../../errors/AppError";
 import { prisma } from "../../../lib/prisma";
-import { config } from "../../../config/index.env";
+import { config } from "../../../config";
 import { ICreateUser } from "./user.interface";
 
 
@@ -84,14 +84,13 @@ const getAllUsersFromDB = async (currentUser: any) => {
     
     
     const whereConditions: any = {
-        isDeleted: false,
-        organizationId: currentUser.organizationId
+        isDeleted: false
     };
 
     
-    // if (currentUser.organizationId) {
-    //     whereConditions.organizationId = currentUser.organizationId;
-    // }
+    if (currentUser.organizationId) {
+        whereConditions.organizationId = currentUser.organizationId;
+    }
     
 
     const result = await prisma.user.findMany({

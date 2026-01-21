@@ -1,7 +1,7 @@
 
 import bcrypt from "bcryptjs";
 import httpStatus from "http-status";
-import { config } from "../../../config/index.env";
+import { config } from "../../../config";
 import { AppError } from "../../errors/AppError";
 import { ICreateOrganizationPayload } from "./organization.interface";
 import { UserRole } from "../../../../prisma/generated/prisma/enums";
@@ -11,7 +11,7 @@ import { prisma } from "../../../lib/prisma";
 
 const createOrganization = async (payload: ICreateOrganizationPayload, currentUser: any) => {
     
-    // 1. Authorization: Only SUPER_ADMIN (Platform Admin) can create new Organizations
+ 
     if (currentUser.role !== UserRole.PLATFORM_ADMIN) {
         throw new AppError(httpStatus.FORBIDDEN, "Only Platform Admins can create organizations");
     }
@@ -69,6 +69,60 @@ const createOrganization = async (payload: ICreateOrganizationPayload, currentUs
     };
 };
 
+
+const getAllOrganizationsFromDB = async () => {
+    const result = await prisma.organization.findMany({
+        where: {
+            isDeleted: false
+        },
+        orderBy: {
+            createdAt: 'desc'
+        },
+        include: {
+            _count: {
+                select: { users: true, projects: true }
+            }
+        }
+    });
+
+    return result;
+};
+
+
+const getOrganizationByIdFromDB = async (orgId: string, currentUser: any) => {
+    
+    
+    if (currentUser.role === UserRole.ORG_ADMIN) {
+        if (currentUser.organizationId !== orgId) {
+            throw new AppError(httpStatus.FORBIDDEN, "You are not authorized to view this organization.");
+        }
+    }
+
+    const result = await prisma.organization.findUnique({
+        where: { 
+            id: orgId,
+            isDeleted: false 
+        },
+        include: {
+            projects: {
+                select: {
+                    id: true,
+                    name: true,
+                    createdAt: true
+                }
+            }
+        }
+    });
+
+    if (!result) {
+        throw new AppError(httpStatus.NOT_FOUND, "Organization not found");
+    }
+
+    return result;
+};
+
 export const OrganizationServices = {
-    createOrganization
+    createOrganization,
+    getAllOrganizationsFromDB,
+    getOrganizationByIdFromDB
 };

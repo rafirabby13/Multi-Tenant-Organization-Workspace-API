@@ -1,5 +1,5 @@
 import express, { Application, NextFunction, Request, Response } from 'express';
-import { config } from './config/index.env';
+import { config } from './config';
 import globalErrorHandler from './app/middlewares/globalErrorHandler';
 import router from './app/routes';
 import cookieParser from 'cookie-parser';
