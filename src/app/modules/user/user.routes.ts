@@ -10,5 +10,7 @@ const router = Router()
 
 
 router.post("/create-user", auth(UserRole.ORG_ADMIN, UserRole.PLATFORM_ADMIN), validateRequest(createUserSchema), UserController.createUser)
+router.get("/all-users", auth(UserRole.ORG_ADMIN, UserRole.PLATFORM_ADMIN), UserController.getAllUsers)
+router.put("/update-user-status/:id", auth(UserRole.ORG_ADMIN, UserRole.PLATFORM_ADMIN), UserController.updateUserStatus)
 
 export const UserRoutes = router

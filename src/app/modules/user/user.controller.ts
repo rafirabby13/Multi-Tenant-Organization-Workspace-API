@@ -23,7 +23,30 @@ const createUser = catchAsync(async (req: Request, res: Response, next: NextFunc
 
 })
 
+const getAllUsers = catchAsync(async (req: Request, res: Response) => {
+    const user = (req as any).user;
+    const result = await UserServices.getAllUsersFromDB(user);
+    sendResponse(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: "Users retrieved successfully",
+        data: result
+    });
+});
 
+const updateUserStatus = catchAsync(async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const { status } = req.body; // Expect { "status": "BLOCKED" }
+    const user = (req as any).user;
+    
+    const result = await UserServices.updateUserStatusInDB(id as string, status, user);
+    sendResponse(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: "User status updated successfully",
+        data: result
+    });
+});
 
 
 
@@ -138,12 +161,6 @@ const createUser = catchAsync(async (req: Request, res: Response, next: NextFunc
 // });
 export const UserController = {
     createUser,
-    // getAllFromDB,
-    // getMyProfile,
-    // // updateUserProfile,
-    // updateMyProfile,
-    // deleteUser,
-    // changePassword,
-    // updateUserRole,
-    // UpdateUserStatus
+    getAllUsers,
+    updateUserStatus,
 }

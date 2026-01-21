@@ -37,6 +37,61 @@ const login = async (payload: { email: string, password: string }) => {
     }
 }
 
+const getMe = async (userId: string) => {
+    const result = await prisma.user.findUnique({
+        where: { id: userId },
+        select: {
+            id: true,
+            email: true,
+            role: true,
+            status: true,
+            organizationId: true,
+            organization: { select: { name: true } }, 
+            createdAt: true
+        }
+    });
+
+    return result;
+};
+
+
+const changePassword = async (user: any, payload: any) => {
+    
+    
+    const userData = await prisma.user.findUnique({
+        where: { id: user.id, isDeleted: false }
+    });
+
+    if (!userData) {
+        throw new AppError(404, "User does not exist!");
+    }
+
+    
+    
+    const isPasswordMatched = await bcrypt.compare(payload.oldPassword, userData.password);
+    if (!isPasswordMatched) {
+        throw new AppError(403, "Incorrect old password");
+    }
+
+   
+    
+    const newHashedPassword = await bcrypt.hash(payload.newPassword, Number(config.salt));
+
+   
+    
+    await prisma.user.update({
+        where: { id: user.id },
+        data: {
+            password: newHashedPassword,
+            needPasswordChange: false 
+        }
+    });
+
+    return { message: "Password changed successfully" };
+};
+
 export const AuthService = {
-    login
+    login,
+    getMe,
+    changePassword
 }

@@ -19,7 +19,8 @@ router.post(
 );
 
 router.get(
-    '/',
+    '/all-projects',
+    auth(UserRole.ORG_ADMIN),
     ProjectController.getAllProjects
 );
 
