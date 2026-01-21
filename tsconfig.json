@@ -5,7 +5,7 @@
 
     "target": "es2020",
     "rootDir": ".",
-    "outDir": "./dist",
+    "outDir": "dist",
 
     "strict": true,
     "esModuleInterop": true,
@@ -17,5 +17,5 @@
     "skipLibCheck": true
   },
   "include": ["src", "prisma.config.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }
