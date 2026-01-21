@@ -10,7 +10,7 @@ const router = express.Router();
 
 
 router.post(
-    '/',
+    '/create-task',
     auth(UserRole.ORG_ADMIN),
     validateRequest(TaskValidation.createTaskSchema),
     TaskController.createTask
@@ -19,21 +19,21 @@ router.post(
 
 
 router.get(
-    '/',
+    '/all-tasks',
     auth(UserRole.ORG_ADMIN, UserRole.ORG_MEMBER),
     TaskController.getAllTasks
 );
 
 router.get(
-    '/:id',
+    '/single-task/:id',
     auth(UserRole.ORG_ADMIN, UserRole.ORG_MEMBER),
     TaskController.getSingleTask
 );
 
 
 
-router.put(
-    '/:id',
+router.patch(
+    '/update-task/:id',
     auth(UserRole.ORG_ADMIN, UserRole.ORG_MEMBER),
     validateRequest(TaskValidation.updateTaskSchema),
     TaskController.updateTask
@@ -42,7 +42,7 @@ router.put(
 
 
 router.delete(
-    '/:id',
+    '/delete-task/:id',
     auth(UserRole.ORG_ADMIN),
     TaskController.deleteTask
 );

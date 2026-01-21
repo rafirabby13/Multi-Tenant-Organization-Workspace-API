@@ -25,7 +25,7 @@ const login = async (payload: { email: string, password: string }) => {
         organizationId: user.organizationId ?? null,
     };
 
-    console.log({tokenPayload})
+    // console.log({tokenPayload})
     const accessToken = jwtHelper.generateToken(tokenPayload, config.jwt_secret as string, "10h");
     const refreshToken = jwtHelper.generateToken(tokenPayload, config.jwt_refresh_secret as string, "90d");
     const { password, ...safeUser } = user;

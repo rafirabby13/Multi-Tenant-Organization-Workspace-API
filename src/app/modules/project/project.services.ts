@@ -60,7 +60,7 @@ const getAllProjectsFromDB = async (currentUser: any) => {
 
 
 const getSingleProjectFromDB = async (projectId: string, currentUser: any) => {
-  
+  console.log({currentUser})
     
     const result = await prisma.project.findFirst({
         where: {

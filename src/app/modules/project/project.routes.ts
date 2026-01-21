@@ -25,18 +25,21 @@ router.get(
 );
 
 router.get(
-    '/:id',
+    '/single-project/:id',
+    auth(UserRole.ORG_ADMIN, UserRole.ORG_MEMBER),
     ProjectController.getSingleProject
 );
 
-router.put(
-    '/:id',
+router.patch(
+    '/update-project/:id',
+    auth(UserRole.ORG_ADMIN),
     validateRequest(ProjectValidation.updateProjectSchema),
     ProjectController.updateProject
 );
 
 router.delete(
-    '/:id',
+    '/delete-project/:id',
+    auth(UserRole.ORG_ADMIN),
     ProjectController.deleteProject
 );
 
