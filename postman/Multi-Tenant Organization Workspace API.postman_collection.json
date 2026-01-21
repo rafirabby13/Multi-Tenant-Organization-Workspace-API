@@ -1,0 +1,994 @@
+{
+  "info": {
+    "_postman_id": "e05aa17a-cd91-4459-98a7-028959e8c79c",
+    "name": "Multi-Tenant Organization Workspace API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "45502579"
+  },
+  "item": [
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "create platform admin",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyMWUwZmE0LWZkYjMtNDZiOS1iNDEzLTgyNmU2YTg2ZTc4MyIsImVtYWlsIjoicGxhdGZvcm1hZG1pbkBnbWFpbC5jb20iLCJyb2xlIjoiUExBVEZPUk1fQURNSU4iLCJvcmdhbml6YXRpb25JZCI6bnVsbCwiaWF0IjoxNzY5MDIwNzEyLCJleHAiOjE3NjkwNTY3MTJ9.1XMD4p6ENfvFzQa5REH8xUSNGDlJoOmjnZCSL9eB8RY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"member4@waltom.com\",\r\n    \"password\": \"SecurePassword123!\",\r\n      \"role\": \"PLATFORM_ADMIN\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://multi-tenant-organization-workspace-api.onrender.com/api/v1/user/create-user",
+              "protocol": "https",
+              "host": [
+                "multi-tenant-organization-workspace-api",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "user",
+                "create-user"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Member",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZmRjYzhjLWZlODgtNDQzMi1hZWQ5LWU2YWY5ZDNjODM2ZiIsImVtYWlsIjoid2FsQHRlY2hub3ZhLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJvcmdhbml6YXRpb25JZCI6IjEyZjFhZTlmLTE3NmEtNDEyNi04M2U1LWNjZDhkOWJiNDgwZiIsImlhdCI6MTc2OTAyMTI4OCwiZXhwIjoxNzY5MDU3Mjg4fQ.wy3PdLUbMcmIFbRg14AOP7xdB6Kt9iB-PYj11yrEX10",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"member1@org.com\",\r\n    \"password\": \"SecurePassword123!\",\r\n    \"role\": \"ORG_MEMBER\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://multi-tenant-organization-workspace-api.onrender.com/api/v1/user/create-user",
+              "protocol": "https",
+              "host": [
+                "multi-tenant-organization-workspace-api",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "user",
+                "create-user"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Users",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyMWUwZmE0LWZkYjMtNDZiOS1iNDEzLTgyNmU2YTg2ZTc4MyIsImVtYWlsIjoicGxhdGZvcm1hZG1pbkBnbWFpbC5jb20iLCJyb2xlIjoiUExBVEZPUk1fQURNSU4iLCJvcmdhbml6YXRpb25JZCI6bnVsbCwiaWF0IjoxNzY5MDIwNzEyLCJleHAiOjE3NjkwNTY3MTJ9.1XMD4p6ENfvFzQa5REH8xUSNGDlJoOmjnZCSL9eB8RY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyMWUwZmE0LWZkYjMtNDZiOS1iNDEzLTgyNmU2YTg2ZTc4MyIsImVtYWlsIjoicGxhdGZvcm1hZG1pbkBnbWFpbC5jb20iLCJyb2xlIjoiUExBVEZPUk1fQURNSU4iLCJvcmdhbml6YXRpb25JZCI6bnVsbCwiaWF0IjoxNzY5MDIwNzEyLCJleHAiOjE3NjkwNTY3MTJ9.1XMD4p6ENfvFzQa5REH8xUSNGDlJoOmjnZCSL9eB8RY",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://multi-tenant-organization-workspace-api.onrender.com/api/v1/user/all-users",
+              "protocol": "https",
+              "host": [
+                "multi-tenant-organization-workspace-api",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "user",
+                "all-users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODZmZDUwYmExMGRiNmZkZWFkNGNhNjIiLCJlbWFpbCI6InN1cGVyQGdtYWlsLmNvbSIsInJvbGUiOiJTVVBFUl9BRE1JTiIsImlhdCI6MTc1MjgyOTIzNiwiZXhwIjoxNzUyOTE1NjM2fQ.5FKkzdTqRgx7ir4Qg4UnA_uIyXDt-raLkQmOsaU1vZg",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"status\" : \"ACTIVE\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://multi-tenant-organization-workspace-api.onrender.com/api/v1/user/update-user-status/a9cd2bbf-7192-4016-9c79-a916d6bd3cd8",
+              "protocol": "https",
+              "host": [
+                "multi-tenant-organization-workspace-api",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "user",
+                "update-user-status",
+                "a9cd2bbf-7192-4016-9c79-a916d6bd3cd8"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Org Admin Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    // \"email\" : \"alice@technova.com\",\r\n    // \"password\" :\"Alice123!\"\r\n    \"email\": \"wal@technova.com\",\r\n    \"password\": \"Walton123!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://multi-tenant-organization-workspace-api.onrender.com/api/v1/auth/login",
+              "protocol": "https",
+              "host": [
+                "multi-tenant-organization-workspace-api",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Org Member Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"member1@org.com\",\r\n    \"password\": \"SecurePassword123!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://multi-tenant-organization-workspace-api.onrender.com/api/v1/auth/login",
+              "protocol": "https",
+              "host": [
+                "multi-tenant-organization-workspace-api",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "platform admin login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \r\n    \"email\" : \"platformadmin@gmail.com\",\r\n    \"password\" :\"platformadmin123\"\r\n\r\n    //  \"email\": \"devops@yourplatform.com\",\r\n//   \"password\": \"SecurePassword123!\",\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://multi-tenant-organization-workspace-api.onrender.com/api/v1/auth/login",
+              "protocol": "https",
+              "host": [
+                "multi-tenant-organization-workspace-api",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Change Password",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZmRjYzhjLWZlODgtNDQzMi1hZWQ5LWU2YWY5ZDNjODM2ZiIsImVtYWlsIjoid2FsQHRlY2hub3ZhLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJvcmdhbml6YXRpb25JZCI6IjEyZjFhZTlmLTE3NmEtNDEyNi04M2U1LWNjZDhkOWJiNDgwZiIsImlhdCI6MTc2OTAyMTI4OCwiZXhwIjoxNzY5MDU3Mjg4fQ.wy3PdLUbMcmIFbRg14AOP7xdB6Kt9iB-PYj11yrEX10",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODZmZDUwYmExMGRiNmZkZWFkNGNhNjIiLCJlbWFpbCI6InN1cGVyQGdtYWlsLmNvbSIsInJvbGUiOiJTVVBFUl9BRE1JTiIsImlhdCI6MTc1MzM3NTc4MiwiZXhwIjoxNzUzNDYyMTgyfQ.Mr2CDX4567Jzc_zK0KHsubIIH-L93iVqjHp_5TWfIE8",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"oldPassword\" : \"StrongPassword123!\",\r\n    \"newPassword\" : \"Alice123!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://multi-tenant-organization-workspace-api.onrender.com/api/v1/auth/change-password",
+              "protocol": "https",
+              "host": [
+                "multi-tenant-organization-workspace-api",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "change-password"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Me",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZmRjYzhjLWZlODgtNDQzMi1hZWQ5LWU2YWY5ZDNjODM2ZiIsImVtYWlsIjoid2FsQHRlY2hub3ZhLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJvcmdhbml6YXRpb25JZCI6IjEyZjFhZTlmLTE3NmEtNDEyNi04M2U1LWNjZDhkOWJiNDgwZiIsImlhdCI6MTc2OTAyMTI4OCwiZXhwIjoxNzY5MDU3Mjg4fQ.wy3PdLUbMcmIFbRg14AOP7xdB6Kt9iB-PYj11yrEX10",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODcwMThlM2JlNWNlMjk2M2I1MTY2MzgiLCJlbWFpbCI6InNhbWluaXNyYXIxQGdtYWlsLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNzUzMTU5MzIzLCJleHAiOjE3NTMyNDU3MjN9.mwAexnOIF_WW7muP_rEiWMh6Tx8KPPJZEXAwLpGzFGk",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\" : \"super@gmail.com\",\r\n    \"password\" :\"12345678\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://multi-tenant-organization-workspace-api.onrender.com/api/v1/auth/me",
+              "protocol": "https",
+              "host": [
+                "multi-tenant-organization-workspace-api",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Organization",
+      "item": [
+        {
+          "name": "Create Organization",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyMWUwZmE0LWZkYjMtNDZiOS1iNDEzLTgyNmU2YTg2ZTc4MyIsImVtYWlsIjoicGxhdGZvcm1hZG1pbkBnbWFpbC5jb20iLCJyb2xlIjoiUExBVEZPUk1fQURNSU4iLCJvcmdhbml6YXRpb25JZCI6bnVsbCwiaWF0IjoxNzY5MDIwNzEyLCJleHAiOjE3NjkwNTY3MTJ9.1XMD4p6ENfvFzQa5REH8xUSNGDlJoOmjnZCSL9eB8RY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODZmZDUwYmExMGRiNmZkZWFkNGNhNjIiLCJlbWFpbCI6InN1cGVyQGdtYWlsLmNvbSIsInJvbGUiOiJTVVBFUl9BRE1JTiIsImlhdCI6MTc1MzEyNjU1NSwiZXhwIjoxNzUzMjEyOTU1fQ.d_PU99ElPm_ZyaagoJieFTV7OlTnxUvuCuVMtnjYCRY",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"organizationName\": \"Techno LTD\",\r\n  \"adminEmail\": \"walton@technova.com\",\r\n  \"adminPassword\": \"Walton123!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://multi-tenant-organization-workspace-api.onrender.com/api/v1/organization/create-organization",
+              "protocol": "https",
+              "host": [
+                "multi-tenant-organization-workspace-api",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "organization",
+                "create-organization"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Organization",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyMWUwZmE0LWZkYjMtNDZiOS1iNDEzLTgyNmU2YTg2ZTc4MyIsImVtYWlsIjoicGxhdGZvcm1hZG1pbkBnbWFpbC5jb20iLCJyb2xlIjoiUExBVEZPUk1fQURNSU4iLCJvcmdhbml6YXRpb25JZCI6bnVsbCwiaWF0IjoxNzY5MDIwNzEyLCJleHAiOjE3NjkwNTY3MTJ9.1XMD4p6ENfvFzQa5REH8xUSNGDlJoOmjnZCSL9eB8RY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://multi-tenant-organization-workspace-api.onrender.com/api/v1/organization/all-organization",
+              "protocol": "https",
+              "host": [
+                "multi-tenant-organization-workspace-api",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "organization",
+                "all-organization"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Organization",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyMWUwZmE0LWZkYjMtNDZiOS1iNDEzLTgyNmU2YTg2ZTc4MyIsImVtYWlsIjoicGxhdGZvcm1hZG1pbkBnbWFpbC5jb20iLCJyb2xlIjoiUExBVEZPUk1fQURNSU4iLCJvcmdhbml6YXRpb25JZCI6bnVsbCwiaWF0IjoxNzY5MDIwNzEyLCJleHAiOjE3NjkwNTY3MTJ9.1XMD4p6ENfvFzQa5REH8xUSNGDlJoOmjnZCSL9eB8RY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://multi-tenant-organization-workspace-api.onrender.com/api/v1/organization/Single-organization/c610e3a4-78cc-4a92-a9d1-674fa916388b",
+              "protocol": "https",
+              "host": [
+                "multi-tenant-organization-workspace-api",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "organization",
+                "Single-organization",
+                "c610e3a4-78cc-4a92-a9d1-674fa916388b"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Project",
+      "item": [
+        {
+          "name": "Create Project",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZmRjYzhjLWZlODgtNDQzMi1hZWQ5LWU2YWY5ZDNjODM2ZiIsImVtYWlsIjoid2FsQHRlY2hub3ZhLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJvcmdhbml6YXRpb25JZCI6IjEyZjFhZTlmLTE3NmEtNDEyNi04M2U1LWNjZDhkOWJiNDgwZiIsImlhdCI6MTc2OTAyMTI4OCwiZXhwIjoxNzY5MDU3Mjg4fQ.wy3PdLUbMcmIFbRg14AOP7xdB6Kt9iB-PYj11yrEX10",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZmRjYzhjLWZlODgtNDQzMi1hZWQ5LWU2YWY5ZDNjODM2ZiIsImVtYWlsIjoid2FsQHRlY2hub3ZhLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJvcmdhbml6YXRpb25JZCI6IjEyZjFhZTlmLTE3NmEtNDEyNi04M2U1LWNjZDhkOWJiNDgwZiIsImlhdCI6MTc2OTAyMTI4OCwiZXhwIjoxNzY5MDU3Mjg4fQ.wy3PdLUbMcmIFbRg14AOP7xdB6Kt9iB-PYj11yrEX10",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Mobile App Revamp 2027\",\r\n    \"description\": \"Redesigning the mobile app interface for improved performance and user engagement.\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://multi-tenant-organization-workspace-api.onrender.com/api/v1/project/create-project",
+              "protocol": "https",
+              "host": [
+                "multi-tenant-organization-workspace-api",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "project",
+                "create-project"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Projects",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZmRjYzhjLWZlODgtNDQzMi1hZWQ5LWU2YWY5ZDNjODM2ZiIsImVtYWlsIjoid2FsQHRlY2hub3ZhLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJvcmdhbml6YXRpb25JZCI6IjEyZjFhZTlmLTE3NmEtNDEyNi04M2U1LWNjZDhkOWJiNDgwZiIsImlhdCI6MTc2OTAyMTI4OCwiZXhwIjoxNzY5MDU3Mjg4fQ.wy3PdLUbMcmIFbRg14AOP7xdB6Kt9iB-PYj11yrEX10",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZmRjYzhjLWZlODgtNDQzMi1hZWQ5LWU2YWY5ZDNjODM2ZiIsImVtYWlsIjoid2FsQHRlY2hub3ZhLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJvcmdhbml6YXRpb25JZCI6IjEyZjFhZTlmLTE3NmEtNDEyNi04M2U1LWNjZDhkOWJiNDgwZiIsImlhdCI6MTc2OTAyMTI4OCwiZXhwIjoxNzY5MDU3Mjg4fQ.wy3PdLUbMcmIFbRg14AOP7xdB6Kt9iB-PYj11yrEX10",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\" : \"user1@gmail.com\",\r\n    \"password\" :\"user12345\"\r\n}"
+            },
+            "url": {
+              "raw": "https://multi-tenant-organization-workspace-api.onrender.com/api/v1/project/all-projects",
+              "protocol": "https",
+              "host": [
+                "multi-tenant-organization-workspace-api",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "project",
+                "all-projects"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Project",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZmRjYzhjLWZlODgtNDQzMi1hZWQ5LWU2YWY5ZDNjODM2ZiIsImVtYWlsIjoid2FsQHRlY2hub3ZhLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJvcmdhbml6YXRpb25JZCI6IjEyZjFhZTlmLTE3NmEtNDEyNi04M2U1LWNjZDhkOWJiNDgwZiIsImlhdCI6MTc2OTAyMTI4OCwiZXhwIjoxNzY5MDU3Mjg4fQ.wy3PdLUbMcmIFbRg14AOP7xdB6Kt9iB-PYj11yrEX10",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "https://multi-tenant-organization-workspace-api.onrender.com/",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\" : \"user1@gmail.com\",\r\n    \"password\" :\"user12345\"\r\n}"
+            },
+            "url": {
+              "raw": "https://multi-tenant-organization-workspace-api.onrender.com/api/v1/project/single-project/1e629c4e-233d-4e85-87b3-5f345f82efde",
+              "protocol": "https",
+              "host": [
+                "multi-tenant-organization-workspace-api",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "project",
+                "single-project",
+                "1e629c4e-233d-4e85-87b3-5f345f82efde"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Project",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZmRjYzhjLWZlODgtNDQzMi1hZWQ5LWU2YWY5ZDNjODM2ZiIsImVtYWlsIjoid2FsQHRlY2hub3ZhLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJvcmdhbml6YXRpb25JZCI6IjEyZjFhZTlmLTE3NmEtNDEyNi04M2U1LWNjZDhkOWJiNDgwZiIsImlhdCI6MTc2OTAyMTI4OCwiZXhwIjoxNzY5MDU3Mjg4fQ.wy3PdLUbMcmIFbRg14AOP7xdB6Kt9iB-PYj11yrEX10",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Website Redesign 2026\",\r\n  \"description\": \"DO Overhauling the main landing page and user dashboard for better UX.\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://multi-tenant-organization-workspace-api.onrender.com/api/v1/project/update-project/1e629c4e-233d-4e85-87b3-5f345f82efde",
+              "protocol": "https",
+              "host": [
+                "multi-tenant-organization-workspace-api",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "project",
+                "update-project",
+                "1e629c4e-233d-4e85-87b3-5f345f82efde"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Project",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZmRjYzhjLWZlODgtNDQzMi1hZWQ5LWU2YWY5ZDNjODM2ZiIsImVtYWlsIjoid2FsQHRlY2hub3ZhLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJvcmdhbml6YXRpb25JZCI6IjEyZjFhZTlmLTE3NmEtNDEyNi04M2U1LWNjZDhkOWJiNDgwZiIsImlhdCI6MTc2OTAyMTI4OCwiZXhwIjoxNzY5MDU3Mjg4fQ.wy3PdLUbMcmIFbRg14AOP7xdB6Kt9iB-PYj11yrEX10",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://multi-tenant-organization-workspace-api.onrender.com/api/v1/project/delete-project/86608041-2f79-4e44-96c6-4cc64b218e9d",
+              "protocol": "https",
+              "host": [
+                "multi-tenant-organization-workspace-api",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "project",
+                "delete-project",
+                "86608041-2f79-4e44-96c6-4cc64b218e9d"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Task",
+      "item": [
+        {
+          "name": "Create Task",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZmRjYzhjLWZlODgtNDQzMi1hZWQ5LWU2YWY5ZDNjODM2ZiIsImVtYWlsIjoid2FsQHRlY2hub3ZhLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJvcmdhbml6YXRpb25JZCI6IjEyZjFhZTlmLTE3NmEtNDEyNi04M2U1LWNjZDhkOWJiNDgwZiIsImlhdCI6MTc2OTAyMTI4OCwiZXhwIjoxNzY5MDU3Mjg4fQ.wy3PdLUbMcmIFbRg14AOP7xdB6Kt9iB-PYj11yrEX10",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"Update e Password Reset Flow\",\r\n  \"description\": \"Password reset emails are not being sent for users with corporate domains.\",\r\n  \"projectId\": \"1e629c4e-233d-4e85-87b3-5f345f82efde\",\r\n  \"assigneeId\": \"1182ec0f-65b0-4b93-bc84-7bf4f7b70c9e\",\r\n  \"dueDate\": \"2024-12-31T23:59:59Z\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://multi-tenant-organization-workspace-api.onrender.com/api/v1/task/create-task",
+              "protocol": "https",
+              "host": [
+                "multi-tenant-organization-workspace-api",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "task",
+                "create-task"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Tasks",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZmRjYzhjLWZlODgtNDQzMi1hZWQ5LWU2YWY5ZDNjODM2ZiIsImVtYWlsIjoid2FsQHRlY2hub3ZhLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJvcmdhbml6YXRpb25JZCI6IjEyZjFhZTlmLTE3NmEtNDEyNi04M2U1LWNjZDhkOWJiNDgwZiIsImlhdCI6MTc2OTAyMTI4OCwiZXhwIjoxNzY5MDU3Mjg4fQ.wy3PdLUbMcmIFbRg14AOP7xdB6Kt9iB-PYj11yrEX10",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://multi-tenant-organization-workspace-api.onrender.com/api/v1/task/all-tasks",
+              "protocol": "https",
+              "host": [
+                "multi-tenant-organization-workspace-api",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "task",
+                "all-tasks"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Task",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZmRjYzhjLWZlODgtNDQzMi1hZWQ5LWU2YWY5ZDNjODM2ZiIsImVtYWlsIjoid2FsQHRlY2hub3ZhLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJvcmdhbml6YXRpb25JZCI6IjEyZjFhZTlmLTE3NmEtNDEyNi04M2U1LWNjZDhkOWJiNDgwZiIsImlhdCI6MTc2OTAyMTI4OCwiZXhwIjoxNzY5MDU3Mjg4fQ.wy3PdLUbMcmIFbRg14AOP7xdB6Kt9iB-PYj11yrEX10",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://multi-tenant-organization-workspace-api.onrender.com/api/v1/task/single-task/8e0c9d11-19ab-4a3d-be28-4d7291ec33e6",
+              "protocol": "https",
+              "host": [
+                "multi-tenant-organization-workspace-api",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "task",
+                "single-task",
+                "8e0c9d11-19ab-4a3d-be28-4d7291ec33e6"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Task",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZmRjYzhjLWZlODgtNDQzMi1hZWQ5LWU2YWY5ZDNjODM2ZiIsImVtYWlsIjoid2FsQHRlY2hub3ZhLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJvcmdhbml6YXRpb25JZCI6IjEyZjFhZTlmLTE3NmEtNDEyNi04M2U1LWNjZDhkOWJiNDgwZiIsImlhdCI6MTc2OTAyMTI4OCwiZXhwIjoxNzY5MDU3Mjg4fQ.wy3PdLUbMcmIFbRg14AOP7xdB6Kt9iB-PYj11yrEX10",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Write POSTman Documentation\",\r\n  \"status\": \"IN_PROGRESS\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://multi-tenant-organization-workspace-api.onrender.com/api/v1/task/update-task/8e0c9d11-19ab-4a3d-be28-4d7291ec33e6",
+              "protocol": "https",
+              "host": [
+                "multi-tenant-organization-workspace-api",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "task",
+                "update-task",
+                "8e0c9d11-19ab-4a3d-be28-4d7291ec33e6"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Task",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJjZmRjYzhjLWZlODgtNDQzMi1hZWQ5LWU2YWY5ZDNjODM2ZiIsImVtYWlsIjoid2FsQHRlY2hub3ZhLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJvcmdhbml6YXRpb25JZCI6IjEyZjFhZTlmLTE3NmEtNDEyNi04M2U1LWNjZDhkOWJiNDgwZiIsImlhdCI6MTc2OTAyMTI4OCwiZXhwIjoxNzY5MDU3Mjg4fQ.wy3PdLUbMcmIFbRg14AOP7xdB6Kt9iB-PYj11yrEX10",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://multi-tenant-organization-workspace-api.onrender.com/api/v1/task/delete-task/7a97f978-0c68-4800-8876-63177e4464a6",
+              "protocol": "https",
+              "host": [
+                "multi-tenant-organization-workspace-api",
+                "onrender",
+                "com"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "task",
+                "delete-task",
+                "7a97f978-0c68-4800-8876-63177e4464a6"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}
