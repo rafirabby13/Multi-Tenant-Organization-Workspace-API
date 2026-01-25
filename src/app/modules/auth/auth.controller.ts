@@ -5,7 +5,7 @@ import sendResponse from "../../shared/sendResponse";
 import httpStatus from "http-status";
 const login = catchAsync(async (req: Request, res: Response) => {
     const result = await AuthService.login(req.body);
-    const { accessToken, refreshToken, user } = result;
+    const { accessToken, refreshToken } = result;
 
     res.cookie("accessToken", accessToken, {
         secure: true,
@@ -24,7 +24,7 @@ const login = catchAsync(async (req: Request, res: Response) => {
         statusCode: 201,
         success: true,
         message: "You logged In successfully!",
-        data: user
+        data: result
     })
 })
 const getMe = catchAsync(async (req: Request, res: Response) => {
